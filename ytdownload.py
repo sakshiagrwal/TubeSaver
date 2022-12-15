@@ -1,11 +1,13 @@
 from pytube import YouTube
-import title
+
 print("Please input your youtube link below:")
-link = input(">")
+link = raw_input(">")
 print("")
 yt = YouTube(link)
-ys = yt.streams.get_highest_resolution()
+# Use a different method to download the highest resolution video
+ys = yt.streams.first()
 print("Video title: " + yt.title)
 print("Resolution: " + ys.resolution)
-ys.download("")
+# Provide a valid path to save the downloaded video
+ys.download("/path/to/save/video")
 print("download has been completed")
